@@ -1,0 +1,132 @@
+
+  #planes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  #planes header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  #planes h2 {
+    color: #009297;
+    font-size: 2.5rem;
+  }
+  
+  #planes header p {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+  }
+  
+  #planes article {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+    gap: 1rem;
+
+  }
+  
+  #planes article:hover {
+    transform: translateY(-5px);
+  }
+  
+  #planes article h3 {
+    color: #009297;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  
+  #planes article > p {
+    text-align: center;
+  }
+  
+  #planes picture {
+    display: flex;
+    justify-content: center;
+  }
+  
+  #planes img {
+    width: 25dvh;
+    height: auto;
+  }
+  
+  #planes ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+  }
+  
+  #planes details {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+  
+  #planes summary {
+    padding: 1rem;
+    background-color: #009297;
+    color: snow;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 300ms ease-in-out;
+  }
+  
+  #planes summary:hover {
+    background-color: #006064;
+  }
+  
+  #planes summary em {
+    font-style: normal;
+  }
+  
+  #planes details[open] summary {
+    background-color: #006064;
+  }
+  
+  #planes details ul {
+    padding: 1rem;
+    background-color: snow;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+    
+  @media (min-width: 768px) {
+    #planes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+  
+    #planes header {
+      grid-column: 1 / -1;
+    }
+    #planes article p{
+        flex: 1;
+    }
+  }
