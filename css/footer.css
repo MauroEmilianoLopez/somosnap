@@ -1,0 +1,19 @@
+body > footer{
+    width: 100vw;
+    display: flex;
+    flex-flow: row-reverse wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: snow;
+    color: #009297;
+    padding: 1rem;
+}
+
+body > footer h2{
+    font-size: 2rem;
+}
+
+body > footer svg{
+    width: 2rem;
+    height: 2rem;
+}
