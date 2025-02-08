@@ -1,3 +1,130 @@
 #atributos{
-    
+    width: 100%;
+    background-color: snow;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+#atributos header{
+    width: 75%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+#atributos header::before{
+    content: "";
+    display: block;
+    flex: 1;
+    height: .25rem;
+    background-color: #009297;
+    transform-origin: center right;
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+}
+#atributos header:hover::before{
+    transform-origin: center left;
+    transform: scaleX(1);
+}
+#atributos header::after{
+    content: "";
+    display: block;
+    flex: 1;
+    height: .25rem;
+    background-color: #009297;
+    transform-origin: center left;
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+}
+#atributos header:hover::after{
+    transform-origin: center right;
+    transform: scaleX(1);
+}
+
+#atributos > ul{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+#atributos > ul > li{
+    width: calc(100% / 2 - 2rem);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+#atributos > ul > li > img{
+    width: 7rem;
+    height: 7rem;
+    object-fit: contain;
+}
+#atributos > ul > li > ul{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: .5rem;
+}
+#atributos > ul > li > ul > li:last-child{
+    width: 100%;
+    font-size: 1rem;
+}
+
+#atributos > ul > li:nth-child(1) > ul > li:first-child{
+    color: #103e1a;
+    font-weight: 800;
+    font-family: "Nunito", sans-serif;
+    font-size: 1.25rem;
+}
+#atributos > ul > li:nth-child(2) > ul > li:first-child{
+    color: #8d181b;
+    font-weight: 800;
+    font-family: "Nunito", sans-serif;
+    font-size: 1.25rem;
+}
+#atributos > ul > li:nth-child(3) > ul > li:first-child{
+    color: #153170;
+    font-weight: 800;
+    font-family: "Nunito", sans-serif;
+    font-size: 1.25rem;
+}
+#atributos > ul > li:nth-child(4) > ul > li:first-child{
+    color: #ad9f42;
+    font-weight: 800;
+    font-family: "Nunito", sans-serif;
+    font-size: 1.25rem;
+}
+
+@media screen and (max-width: 768px) {
+    #atributos > ul > li{
+        width: calc(100% - 2rem);
+    }
+    #atributos header{
+        width: 100%;
+        flex-flow: column;
+        text-align: center;
+    }
+    #atributos header::before{
+        flex: auto;
+        width: 100%;
+        transform: scaleX(1);
+    }
+    #atributos header::after{
+        flex: auto;
+        width: 100%;
+        transform: scaleX(1);
+    }
+
 }
