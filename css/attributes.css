@@ -50,6 +50,7 @@
 
 #atributos > ul{
     width: 100%;
+    max-width: 1280px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;

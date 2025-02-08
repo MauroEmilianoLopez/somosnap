@@ -27,11 +27,10 @@
   
   #planes header p {
     font-size: 1.2rem;
-    color: var(--secondary-color);
   }
   
   #planes article {
-    background-color: white;
+    background-color: snow;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 2rem;
