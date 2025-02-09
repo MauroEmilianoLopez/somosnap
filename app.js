@@ -1,60 +1,57 @@
 // Header Navbar Mobile
-
+import navbar from "./modules/navbar.js"
 const btnMenu = document.querySelector("#btnMenu")
-
-btnMenu.addEventListener('click', (e) => {
-    e.preventDefault()
-    const btn = e.target.closest('button')
-    const navbarMain = document.querySelector("#main_nav")
-    navbarMain.classList.toggle('active')
-    if (!navbarMain.classList.contains('active')) {
-        btn.classList.add('close')
-    } else {
-        btn.classList.remove('close')
-    }
-})
-
-
-// Configuración de la animación
-const header = document.querySelector('body > header');
-const animationRange = 100; // Rango de scroll para completar la animación (en píxeles)
-
-// Función de interpolación lineal
-const lerp = (start, end, amount) => start + (end - start) * amount;
-
-// Manejador de scroll optimizado
-const handleScroll = () => {
-    const scrollY = window.scrollY || window.pageYOffset;
-    const progress = Math.min(scrollY / animationRange, 1); // Normalizamos a 0-1
-
-    // Interpolación de colores
-    const startColor = [0, 0, 0, 0]; // transparent
-    const endColor = [255, 250, 250, 1]; // snow (RGB: 255,250,250)
-
-    const currentColor = startColor.map((channel, index) =>
-        lerp(channel, endColor[index], progress)
-    );
-
-    // Interpolación de sombra
-    const shadowOpacity = lerp(0, 0.4, progress);
-    const shadowBlur = lerp(0, 4, progress); // 0.25rem ≈ 4px
-
-    // Aplicar estilos
-    header.style.backgroundColor = `rgba(${currentColor[0]}, ${currentColor[1]}, ${currentColor[2]}, ${currentColor[3]})`;
-    header.style.boxShadow = `0 0 ${shadowBlur}px rgba(21, 21, 21, ${shadowOpacity})`;
-};
+btnMenu.addEventListener('click', navbar)
 
 // Optimización del evento scroll
+import transparent from "./modules/scroll.js"
 let isTicking = false;
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', () => { 
     if (!isTicking) {
         window.requestAnimationFrame(() => {
-            handleScroll();
+            transparent();
             isTicking = false;
         });
         isTicking = true;
     }
 });
 
+/*
+
+import friendlyScroll from "./modules/friendly.js"
+
+  document.querySelectorAll("#main_nav a").forEach(link => {
+    link.addEventListener("click", function(event) {
+      event.preventDefault();
+      const url = this.getAttribute("href");
+      history.pushState(null, "", url);
+      friendlyScroll();
+    });
+  });
+
+
+  window.addEventListener("popstate", friendlyScroll);
+
+  // Al cargar la página, desplaza el scroll a la sección indicada en la URL
+  friendlyScroll();
+
+  */
+
 // Ejecutar al cargar para estado inicial
-handleScroll();
+transparent();
+
+// Cambiar las URLs de forma dinámica
+
+document.querySelectorAll("[href^='https://somosnap.com']").forEach(link => {
+    link.href = link.href.replace("https://somosnap.com", `${window.location.origin}`);
+})
+
+document.querySelectorAll("[src^='assets/']").forEach(img => {
+    img.setAttribute("src", img.getAttribute("src").replace("assets/", `${window.location.origin}/assets/`));
+})
+document.querySelectorAll("[content^='assets/']").forEach(meta => {
+    meta.setAttribute("content", meta.getAttribute("content").replace("assets/", `${window.location.origin}/assets/`));
+})
+document.querySelectorAll("[content^='https://somosnap.com']").forEach(meta => {
+    meta.setAttribute("content", meta.getAttribute("content").replace("https://somosnap.com", `${window.location.origin}`));
+})

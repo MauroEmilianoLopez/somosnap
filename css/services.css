@@ -117,9 +117,10 @@
   @media (min-width: 768px) {
     #planes {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fill,minmax(560px, 1fr));
       gap: 2rem;
-      align-items: flex-start;
+      place-content: center;
+      place-items: center;
     }
   
     #planes header {
